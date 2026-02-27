@@ -1,4 +1,4 @@
-    .section .txm_module_preamble
+    .section .txm_module_preamble, "ax"
     .align 4
     
     // External references
