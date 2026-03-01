@@ -66,9 +66,9 @@
     .extern  _tx_thread_context_restore
     trap_entry:
 #if defined(__riscv_float_abi_single) || defined(__riscv_float_abi_double)
-	addi sp, sp, -260         // Allocate space for all registers - with floating point enabled
+	addi sp, sp, -260         // Allocate space for all registers - with floating point enabled (65*4)
 #else
-	addi sp, sp, -128         // Allocate space for all registers - without floating point enabled
+	addi sp, sp, -128         // Allocate space for all registers - without floating point enabled (32*4)
 #endif
 
 	sw   x1, 112(sp)         // Store RA (28*4 = 112, because call will override ra [ra is a callee register in riscv])
