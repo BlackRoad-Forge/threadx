@@ -1,5 +1,6 @@
 /***************************************************************************
  * Copyright (c) 2024 Microsoft Corporation 
+ * Copyright (C) 2026-present Eclipse ThreadX contributors 
  * 
  * This program and the accompanying materials are made available under the
  * terms of the MIT License which is available at
@@ -38,6 +39,14 @@
 
 #define IRQ_MODE    0x12            // IRQ mode
 #define SVC_MODE    0x13            // SVC mode
+
+#ifdef TX_ENABLE_VFP_SUPPORT
+#define IRQ_MASK    0x80
+#endif
+
+#ifdef TX_ENABLE_FIQ_SUPPORT
+#define FIQ_MASK    0x40
+#endif
 
 /**************************************************************************/
 /*                                                                        */
@@ -259,3 +268,4 @@ no_fiq:
     BX      lr
 
 #endif
+
